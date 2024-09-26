@@ -1,7 +1,11 @@
 import pyttsx3
 import speech_recognition as sr
 import google.generativeai as genai
+import os
+from dotenv import load_dotenv
 
+
+load_dotenv()
 # Initialize text-to-speech engine
 engine = pyttsx3.init()
 
@@ -9,7 +13,7 @@ engine = pyttsx3.init()
 recognizer = sr.Recognizer()
 
 # Initialize Gemini API (replace with your actual API key)
-genai.configure(api_key='AIzaSyD4_wR2A0eqXvamQHlqC8IQHTlqeh_SLJo')
+genai.configure(api_key=os.environ['GEMINI_API_KEY'])
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 def ask_question(question):
