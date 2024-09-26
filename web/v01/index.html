@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FastAPI WebSocket Client</title>
+    </head>
+    <body>
+        <h1>FastAPI WebSocket Example</h1>
+        <input id="questionInput" type="text" placeholder="Ask a question" />
+        <button onclick="sendQuestion()">Ask</button>
+        <div id="response"></div>
+
+        <script>
+            let socket = new WebSocket("ws://localhost:8000/ws");
+
+            // When a connection is established
+            socket.onopen = function (event) {
+                console.log("WebSocket connection established");
+            };
+
+            // When receiving a message from the server
+            socket.onmessage = function (event) {
+                let responseDiv = document.getElementById("response");
+                responseDiv.innerHTML += `<p>${event.data}</p>`;
+            };
+
+            // Function to send a question to the backend
+            function sendQuestion() {
+                let input = document.getElementById("questionInput");
+                let question = input.value;
+                socket.send(question);
+            }
+        </script>
+    </body>
+</html>
