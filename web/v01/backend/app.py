@@ -41,10 +41,11 @@ async def websocket_endpoint(websocket: WebSocket):
 
         # Send the answer and relevancy back to the frontend via WebSocket
         await websocket.send_text(f"Answer: {answer}")
-        await websocket.send_text(f"Relevancy: {relevancy}")
+        await websocket.send_text(f"Feedback: {relevancy}")
 
 # Relevancy checking function
 def check_relevancy(question, answer):
     prompt = f"Question: {question}\nAnswer: {answer}\nIs the answer relevant?"
     response = model.generate_content(prompt)
+    
     return response.text
