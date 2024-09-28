@@ -30,7 +30,7 @@ npm install
 ### Backend
 
 ```
-cd ./web/v01/backend
+cd ./backend
 ```
 
 ```
