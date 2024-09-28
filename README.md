@@ -8,6 +8,14 @@ Python 3.12 recommended.
 
 ```
 pip install fastapi[all] uvicorn setuptools pyttsx3 SpeechRecognition google-generativeai pyaudio
+
+OR
+
+pip3 install fastapi[all] uvicorn setuptools pyttsx3 SpeechRecognition google-generativeai pyaudio
+
+OR
+
+pip3.12 install fastapi[all] uvicorn setuptools pyttsx3 SpeechRecognition google-generativeai pyaudio
 ```
 
 ### Start the server
